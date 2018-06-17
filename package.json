@@ -1,0 +1,26 @@
+{
+  "name": "dek-odoo.github.io",
+  "version": "1.0.0",
+  "description": "Portfolio of Devendra kavthekar, Odoo developer based in Gandhinagar, India",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "lite-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dek-odoo/dek-odoo.github.io.git"
+  },
+  "keywords": [
+    "odoo",
+    "Devendra",
+    "kavthekar",
+    "personal",
+    "portfolio",
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dek-odoo/dek-odoo.github.io/issues"
+  },
+  "homepage": "https://github.com/dek-odoo/dek-odoo.github.io#readme"
+}
