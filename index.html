@@ -199,96 +199,48 @@
                 <div class="row">
                     <div class="showcase-container clearfix" id="showcase-container">
                             <section class="col-md-6 filtr-item showcase-item" data-category="1, 2">
-                                <div class="wrapper embed-responsive-item">
-                                    <div class="youtube" data-embed="7jtmDM0wfFQ">
-                                        <div class="play-button"></div>
-                                    </div>
-                                </div>
+                                <div class="youtube-player" data-id="7jtmDM0wfFQ"></div>
                             </section>
                             <section class="col-md-6 filtr-item showcase-item" data-category="1">
-                                <div class="wrapper embed-responsive-item">
-                                    <div class="youtube" data-embed="VGOzGqhfHuk">
-                                        <div class="play-button"></div>
-                                    </div>
-                                </div>
+                                <div class="youtube-player" data-id="VGOzGqhfHuk"></div>
                             </section>
                             <section class="col-md-6 filtr-item showcase-item" data-category="1">
-                                <div class="wrapper embed-responsive-item">
-                                    <div class="youtube" data-embed="fzpLElJKEjA">
-                                        <div class="play-button"></div>
-                                    </div>
-                                </div>
+                                <div class="youtube-player" data-id="fzpLElJKEjA"></div>
                             </section>
                             <section class="col-md-6 filtr-item showcase-item" data-category="1">
-                                <div class="wrapper embed-responsive-item">
-                                    <div class="youtube" data-embed="FBHyuLHJX8U">
-                                        <div class="play-button"></div>
-                                    </div>
-                                </div>
+                                <div class="youtube-player" data-id="FBHyuLHJX8U"></div>
                             </section>
 
                             <section class="col-md-6 filtr-item showcase-item" data-category="1">
-                                <div class="wrapper embed-responsive-item">
-                                    <div class="youtube" data-embed="XbaNIvw4qo4">
-                                        <div class="play-button"></div>
-                                    </div>
-                                </div>
+                                <div class="youtube-player" data-id="XbaNIvw4qo4"></div>
                             </section>
 
                             <section class="col-md-6 filtr-item showcase-item" data-category="1">
-                                <div class="wrapper embed-responsive-item">
-                                    <div class="youtube" data-embed="nVCHU3k6csI">
-                                        <div class="play-button"></div>
-                                    </div>
-                                </div>
+                                <div class="youtube-player" data-id="nVCHU3k6csI"></div>
                             </section>
 
                             <section class="col-md-6 filtr-item showcase-item" data-category="1">
-                                <div class="wrapper embed-responsive-item">
-                                    <div class="youtube" data-embed="W4mKLh78-pQ">
-                                        <div class="play-button"></div>
-                                    </div>
-                                </div>
+                                <div class="youtube-player" data-id="W4mKLh78-pQ"></div>
                             </section>
 
                             <section class="col-md-6 filtr-item showcase-item" data-category="1">
-                                <div class="wrapper embed-responsive-item">
-                                    <div class="youtube" data-embed="Nc3GPivmxHU">
-                                        <div class="play-button"></div>
-                                    </div>
-                                </div>
+                                <div class="youtube-player" data-id="Nc3GPivmxHU"></div>
                             </section>
 
                             <section class="col-md-6 filtr-item showcase-item" data-category="1">
-                                <div class="wrapper embed-responsive-item">
-                                    <div class="youtube" data-embed="sKaJSbIHnRw">
-                                        <div class="play-button"></div>
-                                    </div>
-                                </div>
+                                <div class="youtube-player" data-id="sKaJSbIHnRw"></div>
                             </section>
 
                             <section class="col-md-6 filtr-item showcase-item" data-category="1">
-                                <div class="wrapper embed-responsive-item">
-                                    <div class="youtube" data-embed="d8SDUpX1AEU">
-                                        <div class="play-button"></div>
-                                    </div>
-                                </div>
+                                <div class="youtube-player" data-id="d8SDUpX1AEU"></div>
                             </section>
 
                             <section class="col-md-6 filtr-item showcase-item" data-category="1">
-                                <div class="wrapper embed-responsive-item">
-                                    <div class="youtube" data-embed="BV5--5KVkyY">
-                                        <div class="play-button"></div>
-                                    </div>
-                                </div>
+                                <div class="youtube-player" data-id="BV5--5KVkyY"></div>
                             </section>
 
                             <section class="col-md-6 filtr-item showcase-item" data-category="1">
-                                <div class="wrapper embed-responsive-item">
-                                    <div class="youtube" data-embed="JmyKchs9i1Q">
-                                        <div class="play-button"></div>
-                                    </div>
-                                </div>
+                                <div class="youtube-player" data-id="JmyKchs9i1Q"></div>
                             </section>
                     </div>
                 </div>
@@ -338,24 +290,33 @@
     <script src="res/js/app.js"></script>
     <script>
 $(function() {
-    var youtube = document.querySelectorAll( ".youtube" );
-    for (var i = 0; i < youtube.length; i++) {
-        var source = "https://img.youtube.com/vi/"+ youtube[i].dataset.embed +"/sddefault.jpg";
-        var image = new Image();
-        image.src = source;
-        image.addEventListener( "load", function() {
-            youtube[i].appendChild(image);
-        }(i));
-        youtube[i].addEventListener( "click", function() {
-            var iframe = document.createElement( "iframe" );
-            iframe.setAttribute( "frameborder", "0" );
-            iframe.setAttribute( "allowfullscreen", "" );
-            iframe.setAttribute( "src", "https://www.youtube.com/embed/"+ this.dataset.embed +"?rel=0&showinfo=0&autoplay=1" );
-
-            this.innerHTML = "";
-            this.appendChild( iframe );
+    document.addEventListener("DOMContentLoaded",
+        function() {
+            var div, n,
+                v = document.getElementsByClassName("youtube-player");
+            for (n = 0; n < v.length; n++) {
+                div = document.createElement("div");
+                div.setAttribute("data-id", v[n].dataset.id);
+                div.innerHTML = labnolThumb(v[n].dataset.id);
+                div.onclick = labnolIframe;
+                v[n].appendChild(div);
+            }
         });
-    };
+
+    function labnolThumb(id) {
+        var thumb = '<img src="https://i.ytimg.com/vi/ID/hqdefault.jpg">',
+            play = '<div class="play"></div>';
+        return thumb.replace("ID", id) + play;
+    }
+
+    function labnolIframe() {
+        var iframe = document.createElement("iframe");
+        var embed = "https://www.youtube.com/embed/ID?autoplay=1";
+        iframe.setAttribute("src", embed.replace("ID", this.dataset.id));
+        iframe.setAttribute("frameborder", "0");
+        iframe.setAttribute("allowfullscreen", "1");
+        this.parentNode.replaceChild(iframe, this);
+    }
 });    </script>
 </body>
 </html>
